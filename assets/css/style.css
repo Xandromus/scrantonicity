@@ -15,15 +15,28 @@ body {
 h1 {
 	font-weight: bold;
 	color: #ffffff;
-	padding-top: 80px;
+	position: absolute;
+	left: 10px;
+	bottom: 0;
 	font-size: 3rem!important;
+}
+
+h2 {
+	text-align: center;
 }
 
 .smaller {
 	font-size: 2.5rem!important;
 }
 
+.header-container {
+	width: 100%;
+	height: 100%;
+}
+
 header {
+	max-height: 100%;
+	height: auto;
 	background-color: #000000;
 	border-radius: 10px;
 	border: 5px solid rgba(0,0,0,0.1);
@@ -31,9 +44,12 @@ header {
 }
 
 header img {
-	width: 100%;
+	float: right;
+	width: 50%;
 	height: auto;
 	max-width: 200px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 /* WRAPPER */
@@ -58,15 +74,38 @@ main {
     position: relative;
     overflow: hidden;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
 }
 
-.section-1 {
-	height: 100vh;
+img.splash {
+	max-width: 300px;
+	width: 100%;
 }
 
-.clip {
-	max-width: 100px;
+img.splash:hover {
+	transform: rotate(7deg);
+	cursor: pointer;
+}
+
+#answer-list {
+	list-style-type: none;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 0!important;
+}
+
+.answer-item {
+	padding: 10px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: 5px solid black;
+}
+
+.answer-item:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
 }
 
 /* FOOTER */
@@ -91,4 +130,34 @@ footer p {
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 798px) {
+	h1 {
+		font-size: 2.5rem!important;
+	}
+	.smaller {
+		font-size: 2rem!important;
+	}
+}
+
+@media screen and (max-width: 510px) {
+	h1 {
+		font-size: 2rem!important;
+	}
+	.smaller {
+		font-size: 1.5rem!important;
+	}
+}
+
+@media screen and (max-width: 385px) {
+	header img {
+		width: 50%;
+	}
+	h1 {
+		font-size: 1.5rem!important;
+	}
+	.smaller {
+		font-size: 1rem!important;
+	}
 }
