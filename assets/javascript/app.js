@@ -68,6 +68,22 @@
                 }
             ];
 
+            var currIndex = questionsAnswersArray.length,
+                    temporaryValue, randomIndex;
+
+                // While there remain elements to shuffle...
+                while (0 !== currIndex) {
+
+                    // Pick a remaining element...
+                    randomIndex = Math.floor(Math.random() * currIndex);
+                    currIndex -= 1;
+
+                    // And swap it with the current element.
+                    temporaryValue = questionsAnswersArray[currIndex];
+                    questionsAnswersArray[currIndex] = questionsAnswersArray[randomIndex];
+                    questionsAnswersArray[randomIndex] = temporaryValue;
+                }
+
             // TIMER
 
             var timer = {

@@ -116,6 +116,7 @@ img.splash:hover {
 	background-color: green;
 	color: white;
 	border: 5px solid green;
+	transition: all .2s ease-in-out;
 }
 
 .correct:hover {
@@ -127,6 +128,7 @@ img.splash:hover {
 	border: 5px solid red;
 	color: white;
 	text-decoration: line-through black;
+	transition: all .2s ease-in-out;
 }
 
 .wrong:hover {
