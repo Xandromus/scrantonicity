@@ -143,7 +143,7 @@
             function displayQuestion() {
                 if (q < 10) {
 
-                $("#current-question, #answer-list").empty();
+                $("#current-question, #answer-list, #right-wrong").empty();
                 timer.run();
 
                 currentQuestion = questionsAnswersArray[q].question;
