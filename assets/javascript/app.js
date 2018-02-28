@@ -124,7 +124,6 @@
             // DISPLAY QUESTIONS AND ANSWERS
 
             function displayQuestion() {
-                console.log(q);
                 if (q < 10) {
 
                 $("#current-question, #answer-list").empty();
@@ -193,23 +192,34 @@
                 timer.stop();
                 $("#current-question, #answer-list, #timer, #right-wrong").empty();
                 $("#current-question").html("<button id='results'>See your results</button>");
+            }
 
+            function results() {
+                $(".tally").append("<p>Correct answers: " + correctCount + "</p>").append("<p>Incorrect answers: " + incorrectCount + "</p>");
+                if (correctCount > 7) {
+                    $(".tally").append("<p>World's Best Boss</p>");
+                } else if (correctCount > 3 & correctCount < 8) {
+                    $(".tally").append("<p>Oh no! You Schruted it!</p>");
+                } else {
+                    $(".tally").append("<p>What a Toby!</p>");
+                }
             }
 
 
             // move to the trivia portion
 
             $("#start-game").on("click", function() {
-                $(".header-container").css("display", "none");
-                $(".middle").css("display", "block");
+                $(".header-container").hide();
+                $(".middle").show();
                 startGame();
                 $("#start-game").off("click");
             });
 
             $(document).on("click", "#results", function() {
                 $("#current-question").empty();
-                $(".middle").css("display", "none");
-                $(".endgame").css("display", "block");
+                $(".middle").hide();
+                $(".endgame").show();
+                results();
             });
 
         });

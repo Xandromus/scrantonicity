@@ -120,6 +120,7 @@ img.splash:hover {
 
 .wrong {
 	background-color: red;
+	border: 5px solid red;
 	color: white;
 	text-decoration: line-through black;
 }
