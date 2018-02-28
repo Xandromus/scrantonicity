@@ -113,9 +113,13 @@ img.splash:hover {
 }
 
 .correct {
-	background-color: black;
+	background-color: green;
 	color: white;
-	border: 5px solid silver;
+	border: 5px solid green;
+}
+
+.correct:hover {
+	background-color: green;
 }
 
 .wrong {
