@@ -9,6 +9,7 @@
             var answers = [];
             var currentQuestion;
             var correctAnswer;
+            var correctShow;
             var q = 0;
             var userChoice;
             var correctCount = 0;
@@ -85,7 +86,7 @@
 
                     if (timer.seconds === 0) {
                         incorrectCount++;
-                        $("#" + correctAnswer).addClass("correct");
+                        $("#" + correctShow).addClass("correct");
                         $("#right-wrong").html("<p>You ran out of time!</p>");
                         timer.stop();
                         $("#answer-list").removeClass("active");
@@ -152,10 +153,11 @@
                 }
 
                 correctAnswer = questionsAnswersArray[q].answer;
+                correctShow = correctAnswer.replace(/\s/g, "");
                 $("#answer-list").addClass("active");
 
                 for (var i = 0; i < 4; i++) {
-                    $("#answer-list").append("<li class='answer-item text-center' id='" + answers[i] + "'>" + answers[i] + "</li>");
+                    $("#answer-list").append("<li class='answer-item text-center' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
                 }
                 q++;
             } else {
@@ -177,7 +179,7 @@
                 } else {
                     incorrectCount++;
                     $(this).addClass("wrong");
-                    $("#" + correctAnswer).addClass("correct");
+                    $("#" + correctShow).addClass("correct");
                     $("#right-wrong").html("<p>Wrong answer!</p>");
                     $("#answer-list").removeClass("active");
                     setTimeout(displayQuestion, 3000);
