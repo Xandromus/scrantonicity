@@ -71,6 +71,7 @@ main {
 /* MIDDLE */
 
 .middle {
+	display: none;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -108,6 +109,31 @@ img.splash:hover {
 	cursor: pointer;
 }
 
+.correct {
+	background-color: black;
+	color: white;
+	border: 5px solid silver;
+}
+
+.wrong {
+	background-color: red;
+	color: white;
+	text-decoration: line-through black;
+}
+
+.wrong:hover {
+	background-color: red;
+}
+
+.flip {
+	animation: flipIt 1.25s ease-in-out 0.5s;
+	transition: all .3s ease-in-out;
+}
+
+.flipoff {
+	animation-name: none;
+}
+
 /* FOOTER */
 
 footer {
@@ -130,6 +156,15 @@ footer p {
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0 auto;
+}
+
+@keyframes flipIt {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(360deg);
+    }
 }
 
 @media screen and (max-width: 798px) {
