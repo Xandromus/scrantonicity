@@ -2,9 +2,9 @@
 
         $(document).ready(function() {
 
-            $(".header-container").css("min-height", $(window).height());
+            $(".wrapper").css("min-height", $(window).height());
 
-            $(".middle").css("min-height", $(window).height());
+            //$(".middle").css("min-height", $(window).height());
 
             var answers = [];
             var currentQuestion;
@@ -85,9 +85,10 @@
 
                     if (timer.seconds === 0) {
                         incorrectCount++;
-                        $("#" + correctAnswer).toggleClass("correct");
+                        $("#" + correctAnswer).addClass("correct");
                         $("#right-wrong").html("<p>You ran out of time!</p>");
                         timer.stop();
+                        $("#answer-list").removeClass("active");
                         setTimeout(displayQuestion, 3000);
                         console.log(correctCount, incorrectCount);
                     }
@@ -123,6 +124,8 @@
             // DISPLAY QUESTIONS AND ANSWERS
 
             function displayQuestion() {
+                console.log(q);
+                if (q < 10) {
 
                 $("#current-question, #answer-list").empty();
                 timer.run();
@@ -150,32 +153,35 @@
                 }
 
                 correctAnswer = questionsAnswersArray[q].answer;
+                $("#answer-list").addClass("active");
 
                 for (var i = 0; i < 4; i++) {
                     $("#answer-list").append("<li class='answer-item text-center' id='" + answers[i] + "'>" + answers[i] + "</li>");
                 }
                 q++;
+            } else {
+                    endGame();
+                }
             }
 
 
 
-            $(document).on("click", ".answer-item", function() {
-                $(".answer-item").toggleClass("disable");
+            $(document).on("click", ".active .answer-item", function() {
                 timer.stop();
                 userChoice = $(this).text();
                 if (userChoice === correctAnswer) {
                     correctCount++;
-                    $(this).toggleClass("correct");
+                    $(this).addClass("correct");
                     $("#right-wrong").html("<p>Correct!</p>");
+                    $("#answer-list").removeClass("active");
                     setTimeout(displayQuestion, 3000);
-                    console.log(correctCount, incorrectCount);
                 } else {
                     incorrectCount++;
-                    $(this).toggleClass("wrong");
-                    $("#" + correctAnswer).toggleClass("correct");
+                    $(this).addClass("wrong");
+                    $("#" + correctAnswer).addClass("correct");
                     $("#right-wrong").html("<p>Wrong answer!</p>");
+                    $("#answer-list").removeClass("active");
                     setTimeout(displayQuestion, 3000);
-                    console.log(correctCount, incorrectCount);
                 }
             });
 
@@ -183,18 +189,28 @@
                 displayQuestion();
             }
 
+            function endGame() {
+                timer.stop();
+                $("#current-question, #answer-list, #timer, #right-wrong").empty();
+                $("#current-question").html("<button id='results'>See your results</button>");
+
+            }
+
 
             // move to the trivia portion
 
             $("#start-game").on("click", function() {
+                $(".header-container").css("display", "none");
                 $(".middle").css("display", "block");
-                $("html, body").animate({
-                    scrollTop: $(".middle").offset().top
-                }, 1000);
                 startGame();
                 $("#start-game").off("click");
             });
 
+            $(document).on("click", "#results", function() {
+                $("#current-question").empty();
+                $(".middle").css("display", "none");
+                $(".endgame").css("display", "block");
+            });
 
         });
     })();
