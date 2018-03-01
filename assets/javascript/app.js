@@ -8,6 +8,8 @@
 
             var answers = [];
             var currentQuestion;
+            var picOne;
+            var picTwo;
             var correctAnswer;
             var correctShow;
             var q = 0;
@@ -19,52 +21,72 @@
             var questionsAnswersArray = [{
                     question: "What game is Creed Bratton always playing on his computer?",
                     answer: "solitaire",
-                    incorrectAnswers: ["minesweeper", "mahjong", "hearts"]
+                    incorrectAnswers: ["minesweeper", "mahjong", "hearts"],
+                    firstPic: "assets/images/creedbratton.jpg",
+                    secondPic: "assets/images/solitaire.jpg"
                 },
                 {
                     question: "Which TV show does the office watch in Viewing Party?",
                     answer: "Glee",
-                    incorrectAnswers: ["Lost", "Desperate Housewives", "Mad Men"]
+                    incorrectAnswers: ["Lost", "Desperate Housewives", "Mad Men"],
+                    firstPic: "assets/images/kellykapoor.jpg",
+                    secondPic: "assets/images/glee.jpg"
                 },
                 {
                     question: "Which character went to college at Cornell University?",
                     answer: "Andy Bernard",
-                    incorrectAnswers: ["Jim Halpert", "Karen Filippelli", "Dwight Schrute"]
+                    incorrectAnswers: ["Jim Halpert", "Karen Filippelli", "Dwight Schrute"],
+                    firstPic: "assets/images/cornell.png",
+                    secondPic: "assets/images/andybernard.jpg"
                 },
                 {
                     question: "Which of the following cities did NOT have a Dunder Mifflin branch?",
                     answer: "Bristol",
-                    incorrectAnswers: ["Utica", "Akron", "Nashua"]
+                    incorrectAnswers: ["Utica", "Akron", "Nashua"],
+                    firstPic: "assets/images/dunder.jpg",
+                    secondPic: "assets/images/bristol.jpg"
                 },
                 {
                     question: "What is Erin Hannon's real first name?",
                     answer: "Kelly",
-                    incorrectAnswers: ["Pam", "Karen", "Angela"]
+                    incorrectAnswers: ["Pam", "Karen", "Angela"],
+                    firstPic: "assets/images/erinhannon.jpg",
+                    secondPic: "assets/images/kellykelly.jpg"
                 },
                 {
                     question: "What was Andy Bernard's nickname in his acapella group?",
                     answer: "Boner Champ",
-                    incorrectAnswers: ["Broccoli Rob", "Lunchbox", "Jingle Jangle"]
+                    incorrectAnswers: ["Broccoli Rob", "Lunchbox", "Jingle Jangle"],
+                    firstPic: "assets/images/andybernard.jpg",
+                    secondPic: "assets/images/hct.jpg"
                 },
                 {
                     question: "What is the name of Ryan Howard's social media invention?",
                     answer: "wuphf",
-                    incorrectAnswers: ["wolf", "woof", "whoop"]
+                    incorrectAnswers: ["wolf", "woof", "whoop"],
+                    firstPic: "assets/images/ryanhoward.jpg",
+                    secondPic: "assets/images/wuphf.jpg"
                 },
                 {
                     question: "What was the name of Kevin Malone's Police cover band?",
                     answer: "Scrantonicity",
-                    incorrectAnswers: ["Scranton in a Bottle", "Spirits in Scranton", "I Can't Stand Losing Scranton"]
+                    incorrectAnswers: ["Scranton in a Bottle", "Spirits in Scranton", "I Can't Stand Losing Scranton"],
+                    firstPic: "assets/images/kevinmalone.jpg",
+                    secondPic: "assets/images/scrantonicity.jpg"
                 },
                 {
                     question: "Who has a heart attack in the office?",
                     answer: "Stanley Hudson",
-                    incorrectAnswers: ["Kevin Malone", "Phyllis Vance", "Nellie Bertram"]
+                    incorrectAnswers: ["Kevin Malone", "Phyllis Vance", "Nellie Bertram"],
+                    firstPic: "assets/images/fire.jpg",
+                    secondPic: "assets/images/stanleyhudson.jpg"
                 },
                 {
                     question: "Who does Michael Scott run over in his car?",
                     answer: "Meredith Palmer",
-                    incorrectAnswers: ["Oscar Martinez", "Pam Beesly", "Toby Flenderson"]
+                    incorrectAnswers: ["Oscar Martinez", "Pam Beesly", "Toby Flenderson"],
+                    firstPic: "assets/images/michaelscott.jpg",
+                    secondPic: "assets/images/meredithpalmer.jpg"
                 }
             ];
 
@@ -103,9 +125,10 @@
                     if (timer.seconds === 0) {
                         incorrectCount++;
                         $("#" + correctShow).addClass("correct");
-                        $("#right-wrong").html("<p>You ran out of time!</p>");
+                        $("#right-wrong").html("<p>You ran out of time! The answer was " + correctAnswer + ".</p>");
                         timer.stop();
                         $("#answer-list").removeClass("active");
+                        $("#pic-field").html(picTwo);
                         setTimeout(displayQuestion, 3000);
                         console.log(correctCount, incorrectCount);
                     }
@@ -142,12 +165,15 @@
 
             function displayQuestion() {
                 if (q < 10) {
-
-                $("#current-question, #answer-list, #right-wrong").empty();
+                $("#current-question, #answer-list, #pic-field, #right-wrong").empty();
                 timer.run();
 
                 currentQuestion = questionsAnswersArray[q].question;
+                picOne = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].firstPic);
+                picTwo = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].secondPic);
+                console.log(questionsAnswersArray[q].firstPic);
                 $("#current-question").append("<h2>" + currentQuestion + "</h2>");
+                $("#pic-field").append(picOne);
 
                 answers = questionsAnswersArray[q].incorrectAnswers;
                 answers.push(questionsAnswersArray[q].answer);
@@ -191,13 +217,15 @@
                     $(this).addClass("correct");
                     $("#right-wrong").html("<p>Correct!</p>");
                     $("#answer-list").removeClass("active");
+                    $("#pic-field").html(picTwo);
                     setTimeout(displayQuestion, 3000);
                 } else {
                     incorrectCount++;
                     $(this).addClass("wrong");
                     $("#" + correctShow).addClass("correct");
-                    $("#right-wrong").html("<p>Wrong answer!</p>");
+                    $("#right-wrong").html("<p>Wrong! It was " + correctAnswer + "</p>");
                     $("#answer-list").removeClass("active");
+                    $("#pic-field").html(picTwo);
                     setTimeout(displayQuestion, 3000);
                 }
             });
@@ -208,18 +236,21 @@
 
             function endGame() {
                 timer.stop();
-                $("#current-question, #answer-list, #timer, #right-wrong").empty();
+                $("#current-question, #answer-list, #timer, #right-wrong, #pic-field").empty();
                 $("#current-question").html("<button id='results'>See your results</button>");
             }
 
             function results() {
                 $(".tally").append("<p>Correct answers: " + correctCount + "</p>").append("<p>Incorrect answers: " + incorrectCount + "</p>");
                 if (correctCount > 7) {
-                    $(".tally").append("<p>World's Best Boss</p>");
+                    $(".tally").append("<img class='img-fluid mt-3' src='assets/images/wbb.jpg' alt='Michael Scott with World's Best Boss mug />");
+                    $(".tally").append("<p class='mt-3'>World's Best Boss</p>");
                 } else if (correctCount > 3 & correctCount < 8) {
-                    $(".tally").append("<p>Oh no! You Schruted it!</p>");
+                    $(".tally").append("<img class='img-fluid mt-3' src='assets/images/dwightschrute.jpg' alt='Dwight Schrute' />");
+                    $(".tally").append("<p class='mt-3'>Oh no! You Schruted it!</p>");
                 } else {
-                    $(".tally").append("<p>What a Toby!</p>");
+                    $(".tally").append("<img class='img-fluid mt-3' src='assets/images/tobyflenderson.jpg' alt='Toby Flenderson' />");
+                    $(".tally").append("<p class='mt-3'>What a Toby!</p>");
                 }
             }
 
@@ -228,14 +259,14 @@
 
             $("#start-game").on("click", function() {
                 $(".header-container").hide();
-                $(".middle").show();
+                $("main").show();
                 startGame();
                 $("#start-game").off("click");
             });
 
             $(document).on("click", "#results", function() {
                 $("#current-question").empty();
-                $(".middle").hide();
+                $("main").hide();
                 $(".endgame").show();
                 results();
             });

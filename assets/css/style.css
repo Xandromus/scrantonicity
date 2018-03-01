@@ -64,14 +64,17 @@ header img {
 /* MAIN */
 
 main {
+	display: none;
     margin-bottom: auto;
     position: relative;
+    animation: fadeIn 1s ease-in-out 0.25s;
+	transition: all .3s ease-in-out;
+	animation-fill-mode: backwards;
 }
 
 /* MIDDLE */
 
 .middle {
-	display: none;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -83,13 +86,23 @@ main {
 }
 
 img.splash {
-	max-width: 300px;
+	max-width: 200px;
 	width: 100%;
 }
 
 img.splash:hover {
 	transform: rotate(7deg);
 	cursor: pointer;
+}
+
+#pic-field img {
+	max-width: 200px;
+	width: 100%;
+	border-radius: 15px;
+}
+
+#right-wrong {
+	height: 20px;
 }
 
 #answer-list {
@@ -110,6 +123,7 @@ img.splash:hover {
 	background-color: black;
 	color: white;
 	cursor: pointer;
+	transition: all .2s ease-in-out;
 }
 
 .correct {
@@ -140,8 +154,9 @@ img.splash:hover {
 	transition: all .3s ease-in-out;
 }
 
-.flipoff {
-	animation-name: none;
+.flipback {
+	animation: flipBack 1.25s ease-in-out 0.5s;
+	transition: all .3s ease-in-out;
 }
 
 /* ENDGAME */
@@ -153,6 +168,11 @@ img.splash:hover {
 	animation: fadeIn 1s ease-in-out 0.25s;
 	transition: all .3s ease-in-out;
 	animation-fill-mode: backwards;
+}
+
+.tally img {
+	max-width: 300px;
+	border-radius: 15px;
 }
 
 /* FOOTER */
@@ -194,6 +214,15 @@ footer p {
     }
     to {
         transform:rotateY(360deg);
+    }
+}
+
+@keyframes flipBack {
+    from {
+        transform:rotateY(360deg);
+    }
+    to {
+        transform:rotateY(0deg);
     }
 }
 
