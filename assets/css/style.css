@@ -95,6 +95,10 @@ img.splash:hover {
 	cursor: pointer;
 }
 
+.pic-field {
+	min-height: 270px;
+}
+
 #pic-field img {
 	max-width: 200px;
 	width: 100%;
