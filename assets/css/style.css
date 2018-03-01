@@ -8,8 +8,9 @@ body {
     height: 100%;
     position: relative;
     color: #000000;
-    font-family: 'helvetica';
-	background-color: white;
+    font-family: 'Cutive', serif;
+	background: url(../images/paper.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 h1 {
@@ -18,6 +19,7 @@ h1 {
 	position: absolute;
 	left: 10px;
 	bottom: 0;
+	font-family: 'helvetica', sans-serif;
 	font-size: 3rem!important;
 }
 
@@ -230,9 +232,23 @@ footer p {
     }
 }
 
+/* MEDIA QUERIES */
+
+
+/* Reduced screen */
+
+@media screen and (max-width: 1250px) {
+	h2 {
+		font-size: 1.7rem;
+	}
+}
+
 @media screen and (max-width: 798px) {
 	h1 {
 		font-size: 2.5rem!important;
+	}
+	h2 {
+		font-size: 1.3rem!important;
 	}
 	.smaller {
 		font-size: 2rem!important;
@@ -242,6 +258,9 @@ footer p {
 @media screen and (max-width: 510px) {
 	h1 {
 		font-size: 2rem!important;
+	}
+	h2 {
+		font-size: 1rem!important;
 	}
 	.smaller {
 		font-size: 1.5rem!important;
@@ -254,6 +273,9 @@ footer p {
 	}
 	h1 {
 		font-size: 1.5rem!important;
+	}
+	h2 {
+		font-size: .8rem!important;
 	}
 	.smaller {
 		font-size: 1rem!important;
