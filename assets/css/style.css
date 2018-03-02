@@ -1,3 +1,5 @@
+/* BASIC STYLES */
+
 html {
     max-height: 100%;
     max-width: 100%;
@@ -29,9 +31,9 @@ h2 {
     line-height: 2.5rem;
 }
 
-.smaller {
-    font-size: 2.5rem!important;
-}
+
+
+/* HEADER */
 
 .header-container {
     width: 100%;
@@ -59,6 +61,11 @@ header img {
     padding-bottom: 10px;
 }
 
+.smaller {
+    font-size: 2.5rem!important;
+}
+
+
 
 /* WRAPPER */
 
@@ -68,6 +75,7 @@ header img {
     padding: 0 0 100px;
     position: relative;
 }
+
 
 
 /* MAIN */
@@ -80,6 +88,7 @@ main {
     transition: all .3s ease-in-out;
     animation-fill-mode: backwards;
 }
+
 
 
 /* MIDDLE */
@@ -111,17 +120,6 @@ h2#timer {
     text-align: left;
 }
 
-#pic-field {
-    min-height: 270px;
-}
-
-#pic-field img {
-    max-width: 200px;
-    width: 100%;
-    border-radius: 15px;
-    border: 5px solid black;
-}
-
 #right-wrong {
     height: 20px;
 }
@@ -133,6 +131,17 @@ h2#timer {
 .correct-text {
     color: green;
     font-weight: bold;
+}
+
+#pic-field {
+    min-height: 270px;
+}
+
+#pic-field img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 15px;
+    border: 5px solid black;
 }
 
 #answer-list {
@@ -181,6 +190,26 @@ h2#timer {
     background-color: red;
 }
 
+
+
+/* ANIMATION FOR IMAGES AND ANSWER LISTS */
+
+.flip {
+    animation: flipIt 1s ease-in-out 0s;
+    transition: all .3s ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+.flipback {
+    animation: flipBack 1s ease-in-out 0s;
+    transition: all .3s ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+
+
+/* BUTTONS FOR RESULTS AND RESET */
+
 #results {
     animation: fadeIn 1s ease-in-out 0.25s;
     transition: all .3s ease-in-out;
@@ -206,17 +235,6 @@ h2#timer {
     cursor: pointer;
 }
 
-.flip {
-    animation: flipIt 1s ease-in-out 0s;
-    transition: all .3s ease-in-out;
-    animation-fill-mode: backwards;
-}
-
-.flipback {
-    animation: flipBack 1s ease-in-out 0s;
-    transition: all .3s ease-in-out;
-    animation-fill-mode: backwards;
-}
 
 
 /* ENDGAME */
@@ -236,6 +254,7 @@ h2#timer {
     border-radius: 15px;
     border: 5px solid black;
 }
+
 
 
 /* FOOTER */
@@ -265,6 +284,10 @@ footer p {
     margin: 0 auto;
 }
 
+
+
+/* ANIMATIONS */
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -293,6 +316,7 @@ footer p {
 }
 
 
+
 /* MEDIA QUERIES */
 
 
@@ -303,6 +327,9 @@ footer p {
         font-size: 1.5rem;
     }
 }
+
+
+/* Tablet portrait */
 
 @media screen and (max-width: 798px) {
     h1 {
@@ -316,6 +343,9 @@ footer p {
         font-size: 2rem!important;
     }
 }
+
+
+/* Small tablets */
 
 @media screen and (max-width: 510px) {
     h1 {
@@ -332,6 +362,9 @@ footer p {
         font-size: .7rem;
     }
 }
+
+
+/* Mobile phones */
 
 @media screen and (max-width: 385px) {
     header img {
