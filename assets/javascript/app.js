@@ -47,7 +47,7 @@
                     secondPic: "assets/images/bristol.jpg"
                 },
                 {
-                    question: "What is Erin Hannon's real first name?",
+                    question: "What was Erin Hannon's real first name?",
                     answer: "Kelly",
                     incorrectAnswers: ["Pam", "Karen", "Angela"],
                     firstPic: "assets/images/erinhannon.jpg",
@@ -82,7 +82,7 @@
                     secondPic: "assets/images/stanleyhudson.jpg"
                 },
                 {
-                    question: "Who does Michael Scott run over in his car?",
+                    question: "Who did Michael Scott run over in his car?",
                     answer: "Meredith Palmer",
                     incorrectAnswers: ["Oscar Martinez", "Pam Beesly", "Toby Flenderson"],
                     firstPic: "assets/images/michaelscott.jpg",
@@ -128,7 +128,7 @@
                     if (timer.seconds === 0) {
                         incorrectCount++;
                         $("#" + correctShow).addClass("correct");
-                        $("#right-wrong").html("<p>You ran out of time!</p><p>The answer was <span class='correct-text'>" + correctAnswer + "</span>.</p>");
+                        $("#right-wrong").html("<p>You ran out of time!</p><p>It was <span class='correct-text'>" + correctAnswer + "</span>.</p>");
                         timer.stop();
                         $("#answer-list").removeClass("active");
                         $("#pic-field").html(picTwo);

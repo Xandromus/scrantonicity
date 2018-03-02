@@ -328,6 +328,9 @@ footer p {
 	.answer-item {
 		font-size: .6rem;
 	}
+	.pic-row {
+		margin-top: 2rem!important;
+	}
 	#right-wrong p {
 		font-size: .8rem;
 	}
