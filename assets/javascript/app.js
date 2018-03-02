@@ -6,7 +6,6 @@
 
             //$(".middle").css("min-height", $(window).height());
 
-            var answers = [];
             var currentQuestion;
             var picOne;
             var picTwo;
@@ -17,6 +16,7 @@
             var correctCount = 0;
             var incorrectCount = 0;
             var intervalId;
+            var theme = new Audio("assets/sounds/officetheme.mp3");
 
             var questionsAnswersArray = [{
                     question: "What game is Creed Bratton always playing on his computer?",
@@ -26,7 +26,7 @@
                     secondPic: "assets/images/solitaire.jpg"
                 },
                 {
-                    question: "Which TV show does the office watch in Viewing Party?",
+                    question: "Which TV show did the office watch in Viewing Party?",
                     answer: "Glee",
                     incorrectAnswers: ["Lost", "Desperate Housewives", "Mad Men"],
                     firstPic: "assets/images/kellykapoor.jpg",
@@ -75,7 +75,7 @@
                     secondPic: "assets/images/scrantonicity.jpg"
                 },
                 {
-                    question: "Who has a heart attack in the office?",
+                    question: "Who had a heart attack in the office?",
                     answer: "Stanley Hudson",
                     incorrectAnswers: ["Kevin Malone", "Phyllis Vance", "Nellie Bertram"],
                     firstPic: "assets/images/fire.jpg",
@@ -89,6 +89,8 @@
                     secondPic: "assets/images/meredithpalmer.jpg"
                 }
             ];
+
+            function shuffleQuestions () {
 
             var currIndex = questionsAnswersArray.length,
                     temporaryValue, randomIndex;
@@ -105,6 +107,7 @@
                     questionsAnswersArray[currIndex] = questionsAnswersArray[randomIndex];
                     questionsAnswersArray[randomIndex] = temporaryValue;
                 }
+}
 
             // TIMER
 
@@ -125,24 +128,13 @@
                     if (timer.seconds === 0) {
                         incorrectCount++;
                         $("#" + correctShow).addClass("correct");
-                        $("#right-wrong").html("<p>You ran out of time! The answer was " + correctAnswer + ".</p>");
+                        $("#right-wrong").html("<p>You ran out of time!</p><p>The answer was <span class='correct-text'>" + correctAnswer + "</span>.</p>");
                         timer.stop();
                         $("#answer-list").removeClass("active");
                         $("#pic-field").html(picTwo);
                         setTimeout(displayQuestion, 3000);
                         console.log(correctCount, incorrectCount);
                     }
-                },
-
-                reset: function() {
-
-                    stopwatch.time = 0;
-                    stopwatch.lap = 1;
-
-                    $("#display").text("00:00");
-                    $("#laps").empty();
-                    stopwatch.stop();
-
                 },
 
                 run: function() {
@@ -171,12 +163,12 @@
                 currentQuestion = questionsAnswersArray[q].question;
                 picOne = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].firstPic);
                 picTwo = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].secondPic);
-                console.log(questionsAnswersArray[q].firstPic);
+                
                 $("#current-question").append("<h2>" + currentQuestion + "</h2>");
                 $("#pic-field").append(picOne);
 
-                answers = questionsAnswersArray[q].incorrectAnswers;
-                answers.push(questionsAnswersArray[q].answer);
+                var answers = [];
+                answers = [questionsAnswersArray[q].answer, questionsAnswersArray[q].incorrectAnswers[0], questionsAnswersArray[q].incorrectAnswers[1], questionsAnswersArray[q].incorrectAnswers[2]];
 
                 var currentIndex = answers.length,
                     temporaryValue, randomIndex;
@@ -223,7 +215,7 @@
                     incorrectCount++;
                     $(this).addClass("wrong");
                     $("#" + correctShow).addClass("correct");
-                    $("#right-wrong").html("<p>Wrong! It was " + correctAnswer + "</p>");
+                    $("#right-wrong").html("<p>Wrong! It was <span class='correct-text'>" + correctAnswer + "</span></p>");
                     $("#answer-list").removeClass("active");
                     $("#pic-field").html(picTwo);
                     setTimeout(displayQuestion, 3000);
@@ -231,13 +223,15 @@
             });
 
             function startGame() {
+                theme.play();
+                shuffleQuestions();
                 displayQuestion();
             }
 
             function endGame() {
                 timer.stop();
                 $("#current-question, #answer-list, #timer, #right-wrong, #pic-field").empty();
-                $("#current-question").html("<button id='results'>See your results</button>");
+                $("#result-holder").html("<button id='results'><i class='fa fa-calculator'></i>&nbsp; See your results</button>");
             }
 
             function results() {
@@ -261,14 +255,23 @@
                 $(".header-container").hide();
                 $("main").show();
                 startGame();
-                $("#start-game").off("click");
             });
 
             $(document).on("click", "#results", function() {
                 $("#current-question").empty();
                 $("main").hide();
                 $(".endgame").show();
+                theme.pause();
                 results();
+            });
+
+            $(document).on("click", "#reset-game", function() {
+                $(".tally, #result-holder").empty();
+                $(".endgame").hide();
+                $(".header-container").show();
+                q = 0;
+                correctCount = 0;
+                incorrectCount = 0;
             });
 
         });

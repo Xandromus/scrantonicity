@@ -24,6 +24,7 @@ h1 {
 }
 
 h2 {
+	margin: 0 auto;
 	text-align: center;
 }
 
@@ -97,6 +98,10 @@ img.splash:hover {
 	cursor: pointer;
 }
 
+h2#timer {
+	font-size: 1.3rem;
+}
+
 #pic-field {
 	min-height: 270px;
 }
@@ -105,10 +110,20 @@ img.splash:hover {
 	max-width: 200px;
 	width: 100%;
 	border-radius: 15px;
+	border: 5px solid black;
 }
 
 #right-wrong {
 	height: 20px;
+}
+
+#right-wrong p {
+	margin-bottom: 5px!important;
+}
+
+.correct-text {
+	color: green;
+	font-weight: bold;
 }
 
 #answer-list {
@@ -119,10 +134,12 @@ img.splash:hover {
 }
 
 .answer-item {
+	font-size: .9rem;
 	padding: 10px;
 	margin-top: 2px;
 	margin-bottom: 2px;
 	border: 5px solid black;
+	background-color: white;
 }
 
 .answer-item:hover {
@@ -153,6 +170,23 @@ img.splash:hover {
 
 .wrong:hover {
 	background-color: red;
+}
+
+#results, #reset-game {
+	display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 12px;
+    border: 5px solid black;
+    border-radius: 8px;
+    background: #ffffff;
+    font-family: 'Cutive', serif;
+}
+
+#results:hover, #reset-game:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
 }
 
 .flip {
@@ -261,10 +295,13 @@ footer p {
 	}
 	h2 {
 		font-size: 1rem!important;
+		line-height: 1.5rem;
 	}
 	.smaller {
 		font-size: 1.5rem!important;
 	}
+	.answer-item {
+		font-size: .7rem;
 }
 
 @media screen and (max-width: 385px) {
@@ -279,5 +316,11 @@ footer p {
 	}
 	.smaller {
 		font-size: 1rem!important;
+	}
+	.answer-item {
+		font-size: .6rem;
+	}
+	#right-wrong p {
+		font-size: .8rem;
 	}
 }
