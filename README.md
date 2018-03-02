@@ -26,9 +26,9 @@ The theme music plays every time the Dundie icon is clicked, but it only plays o
 
 This trivia game builds on the JavaScript and jQuery concepts from previous weeks by adding some important methods:
 
-- `setTimeout`
-- `setInterval`
-- `clearInterval`
+- `setTimeout()`
+- `setInterval()`
+- `clearInterval()`
 
 The use of functions within an object was also important to this project. The code for shuffling the questions and answers was taken directly from a Stack Overflow answer.
 
@@ -40,4 +40,4 @@ The use of functions within an object was also important to this project. The co
 ## Authors
 
 - **Xander Rapstine** - [Xander Rapstine](https://github.com/Xandromus)
-- **NBC** - [BioWare](https://www.nbc.com/)
+- **NBC** - [NBC](https://www.nbc.com/)
