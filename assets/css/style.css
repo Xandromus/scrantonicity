@@ -103,6 +103,11 @@ h2#timer {
 	font-size: 1.3rem;
 }
 
+#current-question h2 {
+	display: inline-block;
+	text-align: left;
+}
+
 #pic-field {
 	min-height: 270px;
 }
@@ -315,7 +320,7 @@ footer p {
 		font-size: 1.5rem!important;
 	}
 	h2 {
-		font-size: .8rem!important;
+		font-size: .7rem!important;
 	}
 	.smaller {
 		font-size: 1rem!important;

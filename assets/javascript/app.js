@@ -19,7 +19,7 @@
             var theme = new Audio("assets/sounds/officetheme.mp3");
 
             var questionsAnswersArray = [{
-                    question: "What game is Creed Bratton always playing on his computer?",
+                    question: "What game was Creed Bratton always playing on his computer?",
                     answer: "solitaire",
                     incorrectAnswers: ["minesweeper", "mahjong", "hearts"],
                     firstPic: "assets/images/creedbratton.jpg",
@@ -207,7 +207,7 @@
                 if (userChoice === correctAnswer) {
                     correctCount++;
                     $(this).addClass("correct");
-                    $("#right-wrong").html("<p>Correct!</p>");
+                    $("#right-wrong").html("<p class='correct-text'>YESH!</p><p class='correct-text'>Correct!</p>");
                     $("#answer-list").removeClass("active");
                     $("#pic-field").html(picTwo);
                     setTimeout(displayQuestion, 3000);
@@ -215,7 +215,7 @@
                     incorrectCount++;
                     $(this).addClass("wrong");
                     $("#" + correctShow).addClass("correct");
-                    $("#right-wrong").html("<p>Wrong! It was <span class='correct-text'>" + correctAnswer + "</span></p>");
+                    $("#right-wrong").html("<p>Wrong!</p><p>It was <span class='correct-text'>" + correctAnswer + "</span></p>");
                     $("#answer-list").removeClass("active");
                     $("#pic-field").html(picTwo);
                     setTimeout(displayQuestion, 3000);
