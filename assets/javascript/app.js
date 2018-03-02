@@ -61,7 +61,7 @@
                     secondPic: "assets/images/hct.jpg"
                 },
                 {
-                    question: "What is the name of Ryan Howard's social media invention?",
+                    question: "What was the name of Ryan Howard's social media invention?",
                     answer: "wuphf",
                     incorrectAnswers: ["wolf", "woof", "whoop"],
                     firstPic: "assets/images/ryanhoward.jpg",
@@ -90,7 +90,7 @@
                 }
             ];
 
-            function shuffleQuestions () {
+            function shuffleQuestions() {
 
             var currIndex = questionsAnswersArray.length,
                     temporaryValue, randomIndex;
@@ -109,6 +109,11 @@
                 }
 }
 
+function spin() {
+                $("#answer-list, #pic-field").addClass("flip");
+                $("#answer-list, #pic-field").toggleClass("flipback", "flip");
+            }
+
             // TIMER
 
             var timer = {
@@ -123,6 +128,13 @@
 
                     if (timer.seconds < 4) {
                         $("#time-left").css("color", "red");
+                    }
+
+                    if (timer.seconds === 1) {
+                        console.log("boo");
+                        $("#seconds").html("second&nbsp;&nbsp;");
+                    } else {
+                        $("#seconds").text("seconds");
                     }
 
                     if (timer.seconds === 0) {
@@ -140,7 +152,7 @@
                 run: function() {
                     clearInterval(intervalId);
                     intervalId = setInterval(timer.decrement, 1000);
-                    $("#timer").html("Time remaining: <span id='time-left'>10</span> seconds");
+                    $("#timer").html("Time remaining: <span id='time-left'>10</span> <span id='seconds'>seconds</span>");
                     $("#time-left").text(10);
                     timer.seconds = 10;
                 },
@@ -156,6 +168,7 @@
             // DISPLAY QUESTIONS AND ANSWERS
 
             function displayQuestion() {
+                spin();
                 if (q < 10) {
                 $("#current-question, #answer-list, #pic-field, #right-wrong").empty();
                 timer.run();
@@ -198,7 +211,6 @@
                     endGame();
                 }
             }
-
 
 
             $(document).on("click", ".active .answer-item", function() {

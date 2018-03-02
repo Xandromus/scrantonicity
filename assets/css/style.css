@@ -36,6 +36,9 @@ h2 {
 .header-container {
 	width: 100%;
 	height: 100%;
+	animation: fadeIn 1s ease-in-out 0.25s;
+	transition: all .3s ease-in-out;
+	animation-fill-mode: backwards;
 }
 
 header {
@@ -71,7 +74,7 @@ main {
 	display: none;
     margin-bottom: auto;
     position: relative;
-    animation: fadeIn 1s ease-in-out 0.25s;
+    animation: fadeIn 1s ease-in-out 0s;
 	transition: all .3s ease-in-out;
 	animation-fill-mode: backwards;
 }
@@ -84,9 +87,6 @@ main {
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    animation: fadeIn 1s ease-in-out 0.25s;
-	transition: all .3s ease-in-out;
-	animation-fill-mode: backwards;
 }
 
 img.splash {
@@ -178,6 +178,12 @@ h2#timer {
 	background-color: red;
 }
 
+#results {
+	animation: fadeIn 1s ease-in-out 0.25s;
+	transition: all .3s ease-in-out;
+	animation-fill-mode: backwards;
+}
+
 #results, #reset-game {
 	display: inline-block;
     text-align: center;
@@ -196,13 +202,15 @@ h2#timer {
 }
 
 .flip {
-	animation: flipIt 1.25s ease-in-out 0.5s;
+	animation: flipIt 1s ease-in-out 0s;
 	transition: all .3s ease-in-out;
+	animation-fill-mode: backwards;
 }
 
 .flipback {
-	animation: flipBack 1.25s ease-in-out 0.5s;
+	animation: flipBack 1s ease-in-out 0s;
 	transition: all .3s ease-in-out;
+	animation-fill-mode: backwards;
 }
 
 /* ENDGAME */
@@ -220,6 +228,7 @@ h2#timer {
 	max-width: 300px;
 	width: 100%;
 	border-radius: 15px;
+	border: 5px solid black;
 }
 
 /* FOOTER */
@@ -233,6 +242,9 @@ footer {
     margin: 0 auto;
     clear: both;
     text-align: center;
+    animation: fadeIn 1s ease-in-out 0.5s;
+	transition: all .3s ease-in-out;
+	animation-fill-mode: backwards;
 }
 
 footer p {
