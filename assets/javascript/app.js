@@ -92,7 +92,7 @@
 
             function shuffleQuestions() {
 
-            var currIndex = questionsAnswersArray.length,
+                var currIndex = questionsAnswersArray.length,
                     temporaryValue, randomIndex;
 
                 // While there remain elements to shuffle...
@@ -107,9 +107,9 @@
                     questionsAnswersArray[currIndex] = questionsAnswersArray[randomIndex];
                     questionsAnswersArray[randomIndex] = temporaryValue;
                 }
-}
+            }
 
-function spin() {
+            function spin() {
                 $("#answer-list, #pic-field").addClass("flip");
                 $("#answer-list, #pic-field").toggleClass("flipback", "flip");
             }
@@ -162,7 +162,7 @@ function spin() {
 
                 }
 
-                
+
             };
 
             // DISPLAY QUESTIONS AND ANSWERS
@@ -170,44 +170,44 @@ function spin() {
             function displayQuestion() {
                 spin();
                 if (q < 10) {
-                $("#current-question, #answer-list, #pic-field, #right-wrong").empty();
-                timer.run();
+                    $("#current-question, #answer-list, #pic-field, #right-wrong").empty();
+                    timer.run();
 
-                currentQuestion = questionsAnswersArray[q].question;
-                picOne = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].firstPic);
-                picTwo = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].secondPic);
-                
-                $("#current-question").append("<h2>" + currentQuestion + "</h2>");
-                $("#pic-field").append(picOne);
+                    currentQuestion = questionsAnswersArray[q].question;
+                    picOne = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].firstPic);
+                    picTwo = $("<img class='img-fluid'>").attr("src", questionsAnswersArray[q].secondPic);
 
-                var answers = [];
-                answers = [questionsAnswersArray[q].answer, questionsAnswersArray[q].incorrectAnswers[0], questionsAnswersArray[q].incorrectAnswers[1], questionsAnswersArray[q].incorrectAnswers[2]];
+                    $("#current-question").append("<h2>" + currentQuestion + "</h2>");
+                    $("#pic-field").append(picOne);
 
-                var currentIndex = answers.length,
-                    temporaryValue, randomIndex;
+                    var answers = [];
+                    answers = [questionsAnswersArray[q].answer, questionsAnswersArray[q].incorrectAnswers[0], questionsAnswersArray[q].incorrectAnswers[1], questionsAnswersArray[q].incorrectAnswers[2]];
 
-                // While there remain elements to shuffle...
-                while (0 !== currentIndex) {
+                    var currentIndex = answers.length,
+                        temporaryValue, randomIndex;
 
-                    // Pick a remaining element...
-                    randomIndex = Math.floor(Math.random() * currentIndex);
-                    currentIndex -= 1;
+                    // While there remain elements to shuffle...
+                    while (0 !== currentIndex) {
 
-                    // And swap it with the current element.
-                    temporaryValue = answers[currentIndex];
-                    answers[currentIndex] = answers[randomIndex];
-                    answers[randomIndex] = temporaryValue;
-                }
+                        // Pick a remaining element...
+                        randomIndex = Math.floor(Math.random() * currentIndex);
+                        currentIndex -= 1;
 
-                correctAnswer = questionsAnswersArray[q].answer;
-                correctShow = correctAnswer.replace(/\s/g, "");
-                $("#answer-list").addClass("active");
+                        // And swap it with the current element.
+                        temporaryValue = answers[currentIndex];
+                        answers[currentIndex] = answers[randomIndex];
+                        answers[randomIndex] = temporaryValue;
+                    }
 
-                for (var i = 0; i < 4; i++) {
-                    $("#answer-list").append("<li class='answer-item text-center' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
-                }
-                q++;
-            } else {
+                    correctAnswer = questionsAnswersArray[q].answer;
+                    correctShow = correctAnswer.replace(/\s/g, "");
+                    $("#answer-list").addClass("active");
+
+                    for (var i = 0; i < 4; i++) {
+                        $("#answer-list").append("<li class='answer-item text-center' id='" + answers[i].replace(/\s/g, "") + "'>" + answers[i] + "</li>");
+                    }
+                    q++;
+                } else {
                     endGame();
                 }
             }
