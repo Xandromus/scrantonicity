@@ -36,7 +36,7 @@
                     question: "Which character went to college at Cornell University?",
                     answer: "Andy Bernard",
                     incorrectAnswers: ["Jim Halpert", "Karen Filippelli", "Dwight Schrute"],
-                    firstPic: "assets/images/cornell.png",
+                    firstPic: "assets/images/cornell.jpg",
                     secondPic: "assets/images/andybernard.jpg"
                 },
                 {
