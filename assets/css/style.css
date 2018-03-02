@@ -26,6 +26,7 @@ h1 {
 h2 {
 	margin: 0 auto;
 	text-align: center;
+	line-height: 2.5rem;
 }
 
 .smaller {
@@ -212,6 +213,7 @@ h2#timer {
 
 .tally img {
 	max-width: 300px;
+	width: 100%;
 	border-radius: 15px;
 }
 
@@ -273,7 +275,7 @@ footer p {
 
 @media screen and (max-width: 1250px) {
 	h2 {
-		font-size: 1.7rem;
+		font-size: 1.5rem;
 	}
 }
 
@@ -282,7 +284,8 @@ footer p {
 		font-size: 2.5rem!important;
 	}
 	h2 {
-		font-size: 1.3rem!important;
+		font-size: 1rem!important;
+		line-height: 2rem;
 	}
 	.smaller {
 		font-size: 2rem!important;

@@ -261,7 +261,6 @@
                 $("#current-question").empty();
                 $("main").hide();
                 $(".endgame").show();
-                theme.pause();
                 results();
             });
 
