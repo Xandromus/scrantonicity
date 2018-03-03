@@ -279,7 +279,7 @@
 
             // function to display the number of correct and incorrect answers and display a unique message and image depending on well user answered questions
             function results() {
-                $(".tally").append("<p>Correct answers: " + correctCount + "</p>").append("<p>Incorrect answers: " + incorrectCount + "</p>");
+                $(".tally").append("<h2 class='mb-1'>Here's how you did:</h2>").append("<p>Correct answers: " + correctCount + "</p>").append("<p>Incorrect answers: " + incorrectCount + "</p>");
                 // best score is between 8 and 10
                 if (correctCount > 7) {
                     $(".tally").append("<img class='img-fluid mt-3' src='assets/images/wbb.jpg' alt='Michael Scott with World's Best Boss mug />");
