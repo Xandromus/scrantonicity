@@ -113,11 +113,6 @@ img.splash:hover {
     cursor: pointer;
 }
 
-.is_apple img.splash:hover {
-  cursor: default;
-    transform: none;
-}
-
 h2#timer {
     font-size: 1.3rem;
 }
