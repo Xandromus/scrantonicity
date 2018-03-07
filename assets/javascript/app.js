@@ -9,7 +9,7 @@
                             (navigator.userAgent.toLowerCase().indexOf("ipod") > -1)
                         );
                     }
-                    if (isAppleDevice() {
+                    if (isAppleDevice()) {
                             $('body').addClass('is_apple')
                         }
 
