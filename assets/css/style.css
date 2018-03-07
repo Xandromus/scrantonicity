@@ -1,4 +1,4 @@
-    /* BASIC STYLES */
+/* BASIC STYLES */
 
 html {
     max-height: 100%;
@@ -30,7 +30,6 @@ h2 {
     text-align: center;
     line-height: 2.5rem;
 }
-
 
 
 
@@ -68,7 +67,6 @@ header img {
 
 
 
-
 /* WRAPPER */
 
 .wrapper {
@@ -77,7 +75,6 @@ header img {
     padding: 0 0 100px;
     position: relative;
 }
-
 
 
 
@@ -94,7 +91,6 @@ main {
 
 
 
-
 /* MIDDLE */
 
 .middle {
@@ -108,11 +104,18 @@ main {
 img.splash {
     max-width: 200px;
     width: 100%;
+    cursor: default;
+    transform: none;
 }
 
 img.splash:hover {
     transform: rotate(7deg);
     cursor: pointer;
+}
+
+.is_apple img.splash:hover {
+  cursor: default;
+    transform: none;
 }
 
 h2#timer {
@@ -162,6 +165,8 @@ h2#timer {
     margin-bottom: 2px;
     border: 5px solid black;
     background-color: white;
+    cursor: default;
+    color: black;
 }
 
 .answer-item:hover {
@@ -169,6 +174,13 @@ h2#timer {
     color: white;
     cursor: pointer;
     transition: all .2s ease-in-out;
+}
+
+.is_apple .answer-item:hover {
+    transition: initial;
+    background-color: white;
+    cursor: default;
+    color: black;
 }
 
 .correct {
@@ -196,7 +208,6 @@ h2#timer {
 
 
 
-
 /* ANIMATION FOR IMAGES AND ANSWER LISTS */
 
 .flip {
@@ -210,7 +221,6 @@ h2#timer {
     transition: all .3s ease-in-out;
     animation-fill-mode: backwards;
 }
-
 
 
 
@@ -241,6 +251,12 @@ h2#timer {
     cursor: pointer;
 }
 
+.is_apple #results:hover,
+.is_apple #reset-game:hover {
+    background-color: white;
+    cursor: default;
+    color: black;
+}
 
 
 
@@ -261,7 +277,6 @@ h2#timer {
     border-radius: 15px;
     border: 5px solid black;
 }
-
 
 
 
@@ -291,7 +306,6 @@ footer p {
     padding-bottom: 20px;
     margin: 0 auto;
 }
-
 
 
 
@@ -326,7 +340,6 @@ footer p {
 
 
 
-
 /* MEDIA QUERIES */
 
 
@@ -337,7 +350,6 @@ footer p {
         font-size: 1.5rem;
     }
 }
-
 
 
 /* Tablet portrait */
@@ -354,7 +366,6 @@ footer p {
         font-size: 2rem!important;
     }
 }
-
 
 
 /* Small tablets */
@@ -374,7 +385,6 @@ footer p {
         font-size: .7rem;
     }
 }
-
 
 
 /* Mobile phones */
@@ -401,15 +411,5 @@ footer p {
     }
     #right-wrong p {
         font-size: .8rem;
-    }
-}
-
-@media (hover: none) {
-    img.splash:hover {
-        transform: none;
-    }
-    .answer-item:hover {
-        background-color: inherit;
-        color: inherit;
     }
 }
