@@ -104,18 +104,11 @@ main {
 img.splash {
     max-width: 200px;
     width: 100%;
-    cursor: default;
-    transform: none;
 }
 
 img.splash:hover {
     transform: rotate(7deg);
     cursor: pointer;
-}
-
-.is_apple img.splash:hover {
-  cursor: default;
-    transform: none;
 }
 
 h2#timer {
@@ -165,8 +158,6 @@ h2#timer {
     margin-bottom: 2px;
     border: 5px solid black;
     background-color: white;
-    cursor: default;
-    color: black;
 }
 
 .answer-item:hover {
@@ -174,13 +165,6 @@ h2#timer {
     color: white;
     cursor: pointer;
     transition: all .2s ease-in-out;
-}
-
-.is_apple .answer-item:hover {
-    transition: initial;
-    background-color: white;
-    cursor: default;
-    color: black;
 }
 
 .correct {
@@ -249,13 +233,6 @@ h2#timer {
     background-color: black;
     color: white;
     cursor: pointer;
-}
-
-.is_apple #results:hover,
-.is_apple #reset-game:hover {
-    background-color: white;
-    cursor: default;
-    color: black;
 }
 
 
