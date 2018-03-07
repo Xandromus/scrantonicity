@@ -2,6 +2,41 @@
 
         $(document).ready(function() {
 
+            function watchForHover() {
+                var hasHoverClass = false;
+                var container = document.body;
+                var lastTouchTime = 0;
+
+                function enableHover() {
+                    // filter emulated events coming from touch events
+                    if (new Date() - lastTouchTime < 500) return;
+                    if (hasHoverClass) return;
+
+                    container.className += ' hasHover';
+                    hasHoverClass = true;
+                }
+
+                function disableHover() {
+                    if (!hasHoverClass) return;
+
+                    container.className = container.className.replace(' hasHover', '');
+                    hasHoverClass = false;
+                }
+
+                function updateLastTouchTime() {
+                    lastTouchTime = new Date();
+                }
+
+                document.addEventListener('touchstart', updateLastTouchTime, true);
+                document.addEventListener('touchstart', disableHover, true);
+                document.addEventListener('mousemove', enableHover, true);
+
+                enableHover();
+            }
+
+            watchForHover();
+
+
             // make sure the page wrapper is always the height of the window
             $(".wrapper").css("min-height", $(window).height());
 
@@ -155,10 +190,10 @@
                         incorrectCount++;
                         $("#" + correctShow).addClass("correct");
                         $("#right-wrong").html("<p>You ran out of time!</p><p>It was <span class='correct-text'>" + correctAnswer + "</span>.</p>");
-                        
+
                         // stop the timer
                         timer.stop();
-                        
+
                         // remove active class from the answer <ul> so that user can't trigger click events
                         $("#answer-list").removeClass("active");
 
@@ -257,7 +292,7 @@
                     // increment the question number
                     q++;
 
-                // end the game once the user has seen every question
+                    // end the game once the user has seen every question
                 } else {
                     endGame();
                 }
@@ -285,12 +320,12 @@
                     $(".tally").append("<img class='img-fluid mt-3' src='assets/images/wbb.jpg' alt='Michael Scott with World's Best Boss mug />");
                     $(".tally").append("<p class='mt-3'>World's Best Boss</p>");
 
-                // middle score between 4 and 7
+                    // middle score between 4 and 7
                 } else if (correctCount > 3 & correctCount < 8) {
                     $(".tally").append("<img class='img-fluid mt-3' src='assets/images/dwightschrute.jpg' alt='Dwight Schrute' />");
                     $(".tally").append("<p class='mt-3'>Oh no! You Schruted it!</p>");
 
-                // poor score between 0 and 3
+                    // poor score between 0 and 3
                 } else {
                     $(".tally").append("<img class='img-fluid mt-3' src='assets/images/tobyflenderson.jpg' alt='Toby Flenderson' />");
                     $(".tally").append("<p class='mt-3'>What a Toby!</p>");
@@ -324,7 +359,7 @@
                     // call function to display next question
                     setTimeout(displayQuestion, 3000);
 
-                // if answer is incorrect
+                    // if answer is incorrect
                 } else {
 
                     // increase the incorrect answer count, highlight the correct and incorrect answers, and display the correct answer
