@@ -1,4 +1,4 @@
-/* BASIC STYLES */
+    /* BASIC STYLES */
 
 html {
     max-height: 100%;
@@ -30,6 +30,7 @@ h2 {
     text-align: center;
     line-height: 2.5rem;
 }
+
 
 
 
@@ -67,6 +68,7 @@ header img {
 
 
 
+
 /* WRAPPER */
 
 .wrapper {
@@ -75,6 +77,7 @@ header img {
     padding: 0 0 100px;
     position: relative;
 }
+
 
 
 
@@ -88,6 +91,7 @@ main {
     transition: all .3s ease-in-out;
     animation-fill-mode: backwards;
 }
+
 
 
 
@@ -106,7 +110,7 @@ img.splash {
     width: 100%;
 }
 
-body.hasHover img.splash:hover {
+img.splash:hover {
     transform: rotate(7deg);
     cursor: pointer;
 }
@@ -160,7 +164,7 @@ h2#timer {
     background-color: white;
 }
 
-body.hasHover .answer-item:hover {
+.answer-item:hover {
     background-color: black;
     color: white;
     cursor: pointer;
@@ -174,7 +178,7 @@ body.hasHover .answer-item:hover {
     transition: all .2s ease-in-out;
 }
 
-body.hasHover .correct:hover {
+.correct:hover {
     background-color: green;
 }
 
@@ -186,9 +190,10 @@ body.hasHover .correct:hover {
     transition: all .2s ease-in-out;
 }
 
-body.hasHover .wrong:hover {
+.wrong:hover {
     background-color: red;
 }
+
 
 
 
@@ -205,6 +210,7 @@ body.hasHover .wrong:hover {
     transition: all .3s ease-in-out;
     animation-fill-mode: backwards;
 }
+
 
 
 
@@ -228,12 +234,13 @@ body.hasHover .wrong:hover {
     font-family: 'Cutive', serif;
 }
 
-body.hasHover #results:hover,
-body.hasHover #reset-game:hover {
+#results:hover,
+#reset-game:hover {
     background-color: black;
     color: white;
     cursor: pointer;
 }
+
 
 
 
@@ -254,6 +261,7 @@ body.hasHover #reset-game:hover {
     border-radius: 15px;
     border: 5px solid black;
 }
+
 
 
 
@@ -283,6 +291,7 @@ footer p {
     padding-bottom: 20px;
     margin: 0 auto;
 }
+
 
 
 
@@ -317,6 +326,7 @@ footer p {
 
 
 
+
 /* MEDIA QUERIES */
 
 
@@ -327,6 +337,7 @@ footer p {
         font-size: 1.5rem;
     }
 }
+
 
 
 /* Tablet portrait */
@@ -343,6 +354,7 @@ footer p {
         font-size: 2rem!important;
     }
 }
+
 
 
 /* Small tablets */
@@ -362,6 +374,7 @@ footer p {
         font-size: .7rem;
     }
 }
+
 
 
 /* Mobile phones */
@@ -390,3 +403,23 @@ footer p {
         font-size: .8rem;
     }
 }
+
+@media (hover: none) {
+    img.splash:hover {
+        transform: none;
+    }
+    .answer-item:hover {
+        background-color: inherit;
+        color: inherit;
+    }
+    .correct:hover {
+        background-color: inherit;
+    }
+    .wrong:hover {
+        background-color: inherit;
+    }
+    #results:hover,
+    #reset-game:hover {
+        background-color: inherit;
+        color: inherit;
+    }
