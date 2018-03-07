@@ -106,7 +106,7 @@ img.splash {
     width: 100%;
 }
 
-img.splash:hover {
+body.hasHover img.splash:hover {
     transform: rotate(7deg);
     cursor: pointer;
 }
@@ -160,7 +160,7 @@ h2#timer {
     background-color: white;
 }
 
-.answer-item:hover {
+body.hasHover .answer-item:hover {
     background-color: black;
     color: white;
     cursor: pointer;
@@ -174,7 +174,7 @@ h2#timer {
     transition: all .2s ease-in-out;
 }
 
-.correct:hover {
+body.hasHover .correct:hover {
     background-color: green;
 }
 
@@ -186,7 +186,7 @@ h2#timer {
     transition: all .2s ease-in-out;
 }
 
-.wrong:hover {
+body.hasHover .wrong:hover {
     background-color: red;
 }
 
@@ -228,8 +228,8 @@ h2#timer {
     font-family: 'Cutive', serif;
 }
 
-#results:hover,
-#reset-game:hover {
+body.hasHover #results:hover,
+body.hasHover #reset-game:hover {
     background-color: black;
     color: white;
     cursor: pointer;
