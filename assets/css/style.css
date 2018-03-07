@@ -412,14 +412,4 @@ footer p {
         background-color: inherit;
         color: inherit;
     }
-    .correct:hover {
-        background-color: inherit;
-    }
-    .wrong:hover {
-        background-color: inherit;
-    }
-    #results:hover,
-    #reset-game:hover {
-        background-color: inherit;
-        color: inherit;
-    }
+}
