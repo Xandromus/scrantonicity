@@ -1,12 +1,12 @@
-# The Office Trivia Game
+# Scrantonicity: The Office Trivia Game
 
-Week 5 Assignment: Create a simple trivia game using JavaScript and jQuery
+A simple trivia game using JavaScript and jQuery
 
 ## Description
 
-[The Office Trivia Game](https://xandromus.github.io/triviagame/)
+[Scrantonicity: The Office Trivia Game](https://xandromus.github.io/scrantonicity/)
 
-![The Office Trivia Game](https://xandromus.github.io/responsive-portfolio/assets/images/office.png)
+![Scrantonicity: The Office Trivia Game](https://xandromus.github.io/responsive-portfolio/assets/images/office.png)
 
 A trivia game based on the NBC TV show The Office. All characters, music, and the name The Office are copyright NBC.
 
